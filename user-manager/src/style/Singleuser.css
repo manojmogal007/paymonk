@@ -1,0 +1,10 @@
+.userdetails>div{
+    width: 20%;
+    margin: auto;
+    border: 1px solid grey;
+    padding: 50px 0px;
+    border-radius: 10px;
+}
+.userdetails>div>img{
+    margin: auto;
+}

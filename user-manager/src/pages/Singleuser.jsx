@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import '../style/Singleuser.css'
 
 const Singleuser = () => {
 
@@ -25,12 +26,13 @@ const Singleuser = () => {
     },[])
 
   return (
-    <div>
+    <div className='userdetails'>
         {
             singleuser!==null&&<div>
             <img src={singleuser.avatar}></img>
             <p>Name : {`${singleuser.first_name} ${singleuser.last_name}`}</p>
             <p>Email : {singleuser.email}</p>
+            <Link style={{color:'blue'}} to='/'>Back</Link>
         </div>
         }
     </div>

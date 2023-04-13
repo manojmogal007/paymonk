@@ -1,0 +1,13 @@
+h1{
+    font-size: 25px;
+    font-weight: 700;
+}
+.allusers{
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    margin: auto;
+}
+.allusers+div{
+    margin-top: 20px;
+}

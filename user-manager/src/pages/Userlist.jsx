@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../components/Context'
 import axios from 'axios'
 import Userbar from '../components/Userbar'
+import Editmodal from '../components/Editmodal'
+import { Button } from '@chakra-ui/react'
+import '../style/Userlist.css'
 
 
 const Userlist = () => {
@@ -12,6 +15,9 @@ const Userlist = () => {
     // console.log(users)
 
     const fetchuser=()=>{
+        // if(users.length!==0){
+        //     return;
+        // }
         axios.get(`https://reqres.in/api/users?page=${page}`)
         .then((res)=>{
             // console.log(res)
@@ -33,16 +39,16 @@ const Userlist = () => {
         <h1>All users</h1>
        {
         users?.map((el)=>(
-            <div key={el.id}>
+            <div className='allusers' key={el.id}>
                 <Userbar {...el} />
-                <button>Edit</button>
+                <Editmodal {...el}/>
             </div>
         ))
        }
        <div>
-        <button disabled={page===1} onClick={()=>setpage(page-1)}>Prev</button>
-        <button>{page}</button>
-        <button disabled={perpage*page===total?true:false} onClick={()=>setpage(page+1)}>Next</button>
+        <Button disabled={page===1} onClick={()=>setpage(page-1)}>Prev</Button>
+        <Button>{page}</Button>
+        <Button disabled={perpage*page===total?true:false} onClick={()=>setpage(page+1)}>Next</Button>
        </div>
     </div>
   )
